@@ -1,0 +1,112 @@
+.home-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* 上部スライド (左から右) */
+.sliding-images-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* コンテナの外に出た画像を隠す */
+}
+
+.sliding-images {
+  display: flex;
+  animation: slide 20s linear infinite; /* 上部のスライドアニメーション (左から右) */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%); /* 左端からスタート */
+  }
+  100% {
+    transform: translateX(0); /* 右端で終了 */
+  }
+}
+
+.sliding-image-wrapper {
+  flex: 0 0 auto;
+  margin-right: 200px; /* 画像同士の間隔を調整 */
+}
+
+.sliding-image {
+  width: 80px;
+  height: 80px;
+  opacity: 0.8; /* 少し透過させて視覚効果を向上 */
+}
+
+/* 下部スライド (右から左) */
+.sliding-images-wrapper-bottom {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* コンテナの外に出た画像を隠す */
+}
+
+.sliding-images-bottom {
+  display: flex;
+  animation: slideReverse 20s linear infinite; /* 下部のスライドアニメーション (右から左) */
+}
+
+@keyframes slideReverse {
+  0% {
+    transform: translateX(0); /* 右端からスタート */
+  }
+  100% {
+    transform: translateX(-100%); /* 左端にスライド */
+  }
+}
+
+
+.menu-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.menu-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #f4b400;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #c89200;
+}
+.menu-icon {
+  transition: transform 0.3s ease; /* 通常の拡大・縮小のためのスムーズなアニメーション */
+}
+
+.menu-icon:hover {
+  animation: tilt 0.3s ease; /* 0.3秒間の揺れアニメーションを適用 */
+  transform: scale(1.1); /* アイコンの拡大 */
+}
+
+/* 揺れを抑えたカタっと揺れるアニメーション */
+@keyframes tilt {
+  0% {
+    transform: scale(1.1) rotate(0deg); /* 最初は元の状態 */
+  }
+  30% {
+    transform: scale(1.1) rotate(-10deg); /* 左に少し傾ける */
+  }
+  60% {
+    transform: scale(1.1) rotate(5deg); /* 右に軽く揺れる */
+  }
+  100% {
+    transform: scale(1.1) rotate(0deg); /* 最終的に元に戻る */
+  }
+}
